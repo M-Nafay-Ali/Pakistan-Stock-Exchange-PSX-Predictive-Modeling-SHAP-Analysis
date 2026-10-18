@@ -83,7 +83,7 @@ $$\phi_i (v) = \sum_{S \subseteq \setminus \{i\}} \frac{\vert{}S\vert{}! (p - \v
 
 ## 🚀 Local Installation and Quick Start:-
 **Clone the repository:**
-git clone [https://github.com/your-username/pakistan-stock-exchange-psx-predictive-modeling-shap-analysis.git](https://github.com/M-Nafay-Ali/pakistan-stock-exchange-psx-predictive-modeling-shap-analysis.git)
+git clone [https://github.com/M-Nafay-Ali/pakistan-stock-exchange-psx-predictive-modeling-shap-analysis.git](https://github.com/M-Nafay-Ali/pakistan-stock-exchange-psx-predictive-modeling-shap-analysis.git)
 cd pakistan-stock-exchange-psx-predictive-modeling-shap-analysis
 **Install Dependencies**
 pip install -r requirements.txt
