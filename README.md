@@ -1,4 +1,4 @@
-## Project 24:-
+## Project 25:-
 
 # 📈 Pakistan Stock Exchange (PSX) Financial Data Science & Predictive Modeling
 **Explainable Machine Learning Pipeline for Equity Price Forecasting (AHL vs. LUCKY)**
