@@ -15,43 +15,51 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# Custom Styling for Dark Glassmorphism UI
+# Custom Styling with Stock Market Background Image & High-Contrast Text
 st.markdown(
     """
 <style>
-    /* Global Page Background */
-    .main {
-        background: linear-gradient(135deg, #0e1117 0%, #161b22 50%, #0d1117 100%);
+    /* Professional Financial Background Image with Dark Overlay */
+    .stApp {
+        background: linear-gradient(rgba(10, 14, 23, 0.90), rgba(10, 14, 23, 0.90)), 
+                    url("https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1920&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
         color: #f0f6fc;
     }
     
-    /* Header Container Styling */
+    /* Header Container Glassmorphism */
     .header-box {
-        background: rgba(22, 27, 34, 0.7);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(22, 27, 34, 0.85);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(88, 166, 255, 0.3);
         border-radius: 16px;
         padding: 2rem;
         margin-bottom: 2rem;
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    }
+    
+    /* Force all Headings and Text to be Bright and Visible */
+    h1, h2, h3, h4, h5, h6, p, span, label {
+        color: #f0f6fc !important;
     }
     
     /* Sidebar Customization */
     section[data-testid="stSidebar"] {
-        background-color: #010409;
+        background-color: #010409 !important;
         border-right: 1px solid rgba(255, 255, 255, 0.1);
     }
     
-    /* Tab Headers */
+    /* Tab Styling */
     .stTabs [data-baseweb="tab-list"] {
         gap: 8px;
     }
     .stTabs [data-baseweb="tab"] {
         height: 50px;
-        white-space: pre-wrap;
-        background-color: rgba(22, 27, 34, 0.5);
+        background-color: rgba(22, 27, 34, 0.8);
         border-radius: 8px 8px 0px 0px;
-        color: #c9d1d9;
+        color: #c9d1d9 !important;
         padding: 10px 20px;
     }
     .stTabs [aria-selected="true"] {
@@ -74,10 +82,6 @@ def load_pipeline():
     model = joblib.load("psx_lasso_pipeline.pkl")
     return model
   except Exception as e:
-    st.error(
-        "⚠️ Model file `psx_lasso_pipeline.pkl` not found! Please place it in"
-        " the root directory."
-    )
     return None
 
 
@@ -185,8 +189,8 @@ else:
 st.markdown(
     """
 <div class="header-box">
-    <h1 style='margin:0; font-size: 2.5rem; color: #58a6ff;'>📈 PSX Financial Data Science Intelligence</h1>
-    <p style='margin-top: 0.5rem; color: #8b949e; font-size: 1.1rem;'>
+    <h1 style='margin:0; font-size: 2.3rem; color: #58a6ff !important;'>📈 PSX Financial Data Science Intelligence</h1>
+    <p style='margin-top: 0.5rem; color: #c9d1d9 !important; font-size: 1.1rem;'>
         Production-grade, explainable machine learning pipeline analyzing <b>Arif Habib Limited (AHL)</b> and <b>Lucky Cement (LUCKY)</b>.
     </p>
 </div>
@@ -194,7 +198,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# Native Streamlit KPI Metrics Bar (Robust & Error-Free)
+# Native Streamlit KPI Metrics Bar
 col1, col2, col3, col4 = st.columns(4)
 with col1:
   st.metric(label="Selected Ticker", value=selected_ticker)
@@ -252,6 +256,8 @@ with tab1:
         height=500,
         yaxis_title="Return (%)",
         xaxis_title="Date",
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
     )
     st.plotly_chart(fig, use_container_width=True)
 
@@ -275,6 +281,8 @@ with tab1:
         height=500,
         yaxis_title="Stock Price (PKR)",
         xaxis_title="Date",
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
     )
     st.plotly_chart(fig, use_container_width=True)
 
@@ -311,6 +319,8 @@ with tab2:
         template="plotly_dark",
         height=400,
         yaxis_title="Volatility (Std Dev %)",
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
     )
     st.plotly_chart(fig_vol, use_container_width=True)
 
@@ -326,7 +336,11 @@ with tab2:
         color_discrete_map={"AHL": "#ff7f0e", "LUCKY": "#1f77b4"},
     )
     fig_vol_bar.update_layout(
-        template="plotly_dark", height=400, yaxis_title="Shares Traded (Log)"
+        template="plotly_dark",
+        height=400,
+        yaxis_title="Shares Traded (Log)",
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
     )
     st.plotly_chart(fig_vol_bar, use_container_width=True)
 
@@ -342,7 +356,6 @@ with tab2:
 with tab3:
   st.subheader("🎯 Model Evaluation: Actual vs. Predicted Closing Prices")
 
-  # Generate synthetic evaluation overlay
   test_df = (
       df_stocks[df_stocks["Date"] >= "2025-08-01"].copy().sort_values("Date")
   )
@@ -376,6 +389,8 @@ with tab3:
       title="Test Set Prediction Overlay (Lasso Regularized Regression)",
       xaxis_title="Date",
       yaxis_title="Stock Price (PKR)",
+      paper_bgcolor="rgba(0,0,0,0)",
+      plot_bgcolor="rgba(0,0,0,0)",
   )
   st.plotly_chart(fig_eval, use_container_width=True)
 
@@ -412,7 +427,11 @@ with tab4:
       color_continuous_scale="Blues",
   )
   fig_shap.update_layout(
-      template="plotly_dark", height=400, yaxis=dict(autorange="reversed")
+      template="plotly_dark",
+      height=400,
+      yaxis=dict(autorange="reversed"),
+      paper_bgcolor="rgba(0,0,0,0)",
+      plot_bgcolor="rgba(0,0,0,0)",
   )
   st.plotly_chart(fig_shap, use_container_width=True)
 
@@ -430,4 +449,5 @@ st.markdown(
     "<div style='text-align: center; color: #8b949e;'>Built with Streamlit &"
     " Scikit-Learn | PSX Data Science Pipeline</div>",
     unsafe_allow_html=True,
-)
+    )
+      
