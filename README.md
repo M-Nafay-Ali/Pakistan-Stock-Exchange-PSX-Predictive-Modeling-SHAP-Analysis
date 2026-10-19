@@ -11,7 +11,7 @@
 ---
 
 ## 🌟 Executive Overview & Live Application
-Welcome to the official repository of **Project #24: PSX Financial Data Science Intelligence**. This project builds an end-to-end, audit-ready, and reproducible quantitative research pipeline tailored for the **Pakistan Stock Exchange (PSX)**. Focusing on two major equities—**Arif Habib Limited (AHL)** and **Lucky Cement (LUCKY)**—this system addresses complex financial realities such as corporate actions, data leakage prevention, regularized regression modeling, and game-theoretic model explainability.
+Welcome to the official repository of **Project #25: PSX Financial Data Science Intelligence**. This project builds an end-to-end, audit-ready, and reproducible quantitative research pipeline tailored for the **Pakistan Stock Exchange (PSX)**. Focusing on two major equities—**Arif Habib Limited (AHL)** and **Lucky Cement (LUCKY)**—this system addresses complex financial realities such as corporate actions, data leakage prevention, regularized regression modeling, and game-theoretic model explainability.
 
 Explore the fully deployed interactive web application here:
 🔗 **[PSX Intelligence Live Streamlit App](https://pakistan-stock-exchange-psx-predictive-modeling-shap-analysis.streamlit.app/)**
